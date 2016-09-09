@@ -8,6 +8,8 @@
         WindowStyle="None"
         Background="Black" Loaded="Window_Loaded">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="106 days left till christmas" Foreground="White" FontSize="20"/>
+        </StackPanel>
     </Grid>
 </Window>
