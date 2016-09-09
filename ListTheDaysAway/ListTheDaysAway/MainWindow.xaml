@@ -9,7 +9,7 @@
         Background="Black" Loaded="Window_Loaded">
     <Grid>
         <StackPanel Orientation="Horizontal" >
-            <Label Content="106" Foreground="White" FontSize="40" VerticalAlignment="Center"/>
+            <Label Content="{Binding Path=SelectedEvent.DaysLeft}" Foreground="White" FontSize="40" VerticalAlignment="Center"/>
             <Label Content="days till:" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
             <Label Content="{Binding Path=SelectedEvent.Name}" Foreground="White" VerticalAlignment="Center" FontSize="40"/>
         </StackPanel>

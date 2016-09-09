@@ -15,6 +15,11 @@ namespace ListTheDaysAway.Model
         private DateTime _endDate;
 
         /// <summary>
+        /// The amount of days left till event day.
+        /// </summary>
+        private int _daysLeft;
+
+        /// <summary>
         /// Initialises an instance of <see cref="EventModel"/>.
         /// </summary>
         /// <param name="name">The name of the event.</param>
@@ -23,6 +28,8 @@ namespace ListTheDaysAway.Model
         {
             Name = name;
             EndDate = endDate;
+
+            WorkOutCountDownDays();
         }
 
         /// <summary>
@@ -49,6 +56,37 @@ namespace ListTheDaysAway.Model
                 _endDate = value;
                 OnPropertyChanged();
             }
+        }
+
+        /// <summary>
+        /// The amount of days left till event day.
+        /// </summary>
+        public int DaysLeft
+        {
+            get { return _daysLeft; }
+            set
+            {
+                _daysLeft = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Using the end date to work out the number of days left till event.
+        /// </summary>
+        private void WorkOutCountDownDays()
+        {
+            DateTime compareDate = DateTime.Now;
+            DaysLeft = 0;
+
+            while (compareDate < EndDate)
+            {
+                DaysLeft++;
+
+                compareDate = compareDate.AddDays(1);
+            }
+
+            DaysLeft--;
         }
     }
 }
