@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WpfApplication2.Model
+namespace ListTheDaysAway.Model
 {
     public class BaseModel : INotifyPropertyChanged
     {
