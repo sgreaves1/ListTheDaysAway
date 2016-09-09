@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using ListTheDaysAway.Model;
 
 namespace ListTheDaysAway.ViewModel
@@ -56,6 +57,8 @@ namespace ListTheDaysAway.ViewModel
         private void PopulateEvents()
         {
             Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
+
+            SelectedEvent = Events.First();
         }
     }
 }
