@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="104.525" Width="525"
         WindowStyle="None"
-        Background="Black">
+        Background="Black" Loaded="Window_Loaded">
     <Grid>
         
     </Grid>
