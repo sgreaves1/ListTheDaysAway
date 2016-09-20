@@ -56,6 +56,11 @@ namespace ListTheDaysAway.ViewModel
         /// </summary>
         private void PopulateEvents()
         {
+            Events.Add(new EventModel("Pay Day", new DateTime(2016, 09, 28)));
+            Events.Add(new EventModel("Masie BDay", new DateTime(2016, 09, 30)));
+            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
+            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
+            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
             Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
 
             SelectedEvent = Events.First();

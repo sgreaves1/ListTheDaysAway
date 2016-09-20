@@ -85,8 +85,6 @@ namespace ListTheDaysAway.Model
 
                 compareDate = compareDate.AddDays(1);
             }
-
-            DaysLeft--;
         }
     }
 }
