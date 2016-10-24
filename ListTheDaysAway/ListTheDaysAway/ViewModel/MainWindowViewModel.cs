@@ -71,10 +71,27 @@ namespace ListTheDaysAway.ViewModel
         }
 
         public ICommand NextCommand { get; set; }
+        public ICommand BackCommand { get; set; }
 
         private void InitCommands()
         {
             NextCommand = new RelayCommand(ExecuteNextCommand, CanExecuteNextCommand);
+            BackCommand = new RelayCommand(ExecuteBackCommand, CanExecuteBackCommand);
+        }
+
+        private bool CanExecuteBackCommand()
+        {
+            if (_selectedIndex > 0)
+                return true;
+
+            return false;
+        }
+
+        private void ExecuteBackCommand()
+        {
+            _selectedIndex--;
+
+            SelectedEvent = Events[_selectedIndex];
         }
 
         private bool CanExecuteNextCommand()
