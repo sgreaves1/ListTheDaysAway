@@ -21,6 +21,6 @@
             <Label Content="{Binding Path=SelectedEvent.Name}" Foreground="White" FontSize="40"/>
         </StackPanel>
         
-        <Button Grid.Row="2" Width="100" Height="20" Content="Next" HorizontalAlignment="Right"/>
+        <Button Grid.Row="2" Width="100" Height="20" Content="Next" HorizontalAlignment="Right" Command="{Binding Path=NextCommand}"/>
     </Grid>
 </Window>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
+using ListTheDaysAway.Command;
 using ListTheDaysAway.Model;
 
 namespace ListTheDaysAway.ViewModel
@@ -17,11 +19,17 @@ namespace ListTheDaysAway.ViewModel
         /// </summary>
         private EventModel _selectedEvent;
 
+        private int _selectedIndex;
+
         /// <summary>
         /// Initialises an instance of <see cref="MainWindowViewModel"/>.
         /// </summary>
         public MainWindowViewModel()
         {
+            _selectedIndex = 0;
+
+            InitCommands();
+
             PopulateEvents();
         }
 
@@ -57,13 +65,38 @@ namespace ListTheDaysAway.ViewModel
         private void PopulateEvents()
         {
             Events.Add(new EventModel("Chimney Opened", new DateTime(2016, 11, 12)));
-            Events.Add(new EventModel("Masie BDay", new DateTime(2016, 09, 30)));
-            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
-            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
-            Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
             Events.Add(new EventModel("Christmas", new DateTime(2016, 12, 25)));
 
-            SelectedEvent = Events.First();
+            SelectedEvent = Events[_selectedIndex];
+        }
+
+        public ICommand NextCommand { get; set; }
+
+        private void InitCommands()
+        {
+            NextCommand = new RelayCommand(ExecuteNextCommand, CanExecuteNextCommand);
+        }
+
+        private bool CanExecuteNextCommand()
+        {
+            if (_selectedIndex < (Events.Count - 1))
+                return true;
+
+            return false;
+        }
+
+        private void ExecuteNextCommand()
+        {
+            _selectedIndex++;
+
+            if (_selectedIndex < Events.Count)
+            {
+                SelectedEvent = Events[_selectedIndex];
+            }
+            else
+            {
+                _selectedIndex--;
+            }
         }
     }
 }
